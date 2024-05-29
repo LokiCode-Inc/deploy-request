@@ -1,6 +1,6 @@
 # Deploy Request Examples
 
-This repository contains example projects to help you get started with making a contract deploy request to your project on Loki.code.
+This repository contains example projects to help you get started with making a contract deploy request to your project on Loki.code. To learn more about deploy requests, check out our [docs] (https://docs.loki.code/docs/deploy-requests).
 
 ## Getting Started
 
