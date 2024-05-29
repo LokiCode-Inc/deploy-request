@@ -12,6 +12,6 @@ A demo of using Loki.code's deploy request API call within a Foundry project. Fo
 1. Optional: add your contracts to the [src](/foundry/src/) folder.
 2. Edit the [deploy-request script](/foundry/script/deploy-request.sh) (follow the instructions at the top of that file).
 3. Run `forge build` to compile your contracts.
-4. Run `chmod +x script/deploy-request.sh` to make the script executable.
+4. Run `chmod +x script/deploy-request.sh` to make the deploy request script executable.
 5. Run `./script/deploy-request.sh` to send the deploy request.
 6. Go to your project on Loki.code's website to review the deploy request.
