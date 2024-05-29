@@ -9,7 +9,7 @@ Start by accessing the folder that fits your preferred framework, and then follo
 - [Hardhat example project](/hardhat/)
 - [Foundry example project](/foundry/)
 
-If you just want to quickly access the example deploy request script itself instead, choose
+If you just want to quickly access the example deploy request script itself instead, choose the script that fits your preferred framework.
 
 - [Hardhat example script](/hardhat/scripts/deploy-request.ts)
 - [Foundry example script](/foundry/script/deploy-request.sh)
