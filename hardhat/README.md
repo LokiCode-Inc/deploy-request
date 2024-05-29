@@ -10,7 +10,7 @@ A demo of using Loki.code's deploy request API call within a Hardhat project. Fo
 
 ## Send a Deploy Request
 
-1. Optional: add your contracts to the [contracts](/contracts) folder.
-2. Edit the [deploy-request script](scripts/deploy-request.ts) (follow the instructions at the top of that file).
+1. Optional: add your contracts to the [contracts](/hardhat/contracts/) folder.
+2. Edit the [deploy-request script](/hardhat/scripts/deploy-request.ts) (follow the instructions at the top of that file).
 3. Run `npx hardhat run scripts/deploy-request.ts`.
 4. Go to your project on Loki.code's website to review the deploy request.

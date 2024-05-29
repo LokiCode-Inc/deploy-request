@@ -1,66 +1,17 @@
-## Foundry
+# Deploy Request Demo (Foundry)
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+A demo of using Loki.code's deploy request API call within a Foundry project. For a more detailed guide, check out our [docs](https://docs.lokicode.app/make-a-deploy-request).
 
-Foundry consists of:
+## Getting Started
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+1. [Ensure you have a project on Loki.code](https://docs.lokicode.app/getting-started/how-to-create-a-new-project).
+2. [Have your project's ID, and your project's API key at hand](https://docs.lokicode.app/make-a-deploy-request#step-1-generate-an-api-key).
 
-## Documentation
+## Send a Deploy Request
 
-https://book.getfoundry.sh/
-
-## Usage
-
-### Build
-
-```shell
-$ forge build
-```
-
-### Test
-
-```shell
-$ forge test
-```
-
-### Format
-
-```shell
-$ forge fmt
-```
-
-### Gas Snapshots
-
-```shell
-$ forge snapshot
-```
-
-### Anvil
-
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+1. Optional: add your contracts to the [src](/foundry/src/) folder.
+2. Edit the [deploy-request script](/foundry/script/deploy-request.sh) (follow the instructions at the top of that file).
+3. Run `forge build` to compile your contracts.
+4. Run `chmod +x script/deploy-request.sh` to make the script executable.
+5. Run `./script/deploy-request.sh` to send the deploy request.
+6. Go to your project on Loki.code's website to review the deploy request.
