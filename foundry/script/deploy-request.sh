@@ -1,16 +1,12 @@
 #!/bin/bash
 
-# TODO: UPDATE THESE FOUR CONSTANTS TO FIT YOUR PROJECT
+# TODO: UPDATE THESE FOUR VARIABLES TO FIT YOUR PROJECT
 CONTRACT_NAMES=("Counter")  # Add more contract names as needed
-PROJECT_ID="181"
+PROJECT_ID="<YOUR PROJECT'S ID>"
 CHAIN_ID=11155111
-API_KEY="loki_jA1IQ_a305c502-79ad-4310-afcf-9808ed034c02_1724606904877"
-
-# Loki.code API URL
-LOKI_CODE_URL="https://loki-api2.azurewebsites.net/deployment-requests/save"
+API_KEY="<YOUR PROJECT'S API KEY>"
 
 # Directory containing the compiled contract data
-# COMPILE_DIR="out"
 COMPILE_DIR="../out"
 
 # Function to read contract data and send a POST request
@@ -23,14 +19,16 @@ send_deploy_request() {
     local file="$COMPILE_DIR/$contract_name.sol/$contract_name.json"
 
     if [[ -f "$file" ]]; then
-        local abi=$(jq -r .abi "$file")
-        local bytecode=$(jq -r .bytecode "$file")
+        # Extract abi and bytecode from the file using jq
+        local abi=$(jq -c '.abi' "$file")
+        local bytecode=$(jq -r '.bytecode' "$file")
+        local contract_name=$(jq -r '.contractName' "$file")
 
         # Create JSON payload
-        local payload=$(jq -n \
-            --arg contractName "$contract_name" \
+        payload=$(jq -n \
             --arg abi "$abi" \
             --arg bytecode "$bytecode" \
+            --arg contractName "$contract_name" \
             --arg projectId "$project_id" \
             --argjson chainId "$chain_id" \
             '{
@@ -46,13 +44,13 @@ send_deploy_request() {
             }')
 
         # Send POST request
-        local response=$(curl -s -w "\nHTTP_CODE:%{http_code}\n" -X POST "$LOKI_CODE_URL" \
+        response=$(curl -s -w "\nHTTP_CODE:%{http_code}\n" -X POST "$LOKI_CODE_URL" \
             -H "Authorization: Bearer $api_key" \
             -H "Content-Type: application/json" \
             -d "$payload")
 
-        local http_code=$(echo "$response" | grep -oP 'HTTP_CODE:\K\d+')
-        local body=$(echo "$response" | sed '/HTTP_CODE:/d')
+        http_code=$(echo "$response" | grep -o 'HTTP_CODE:[0-9]*' | cut -d: -f2)
+        body=$(echo "$response" | sed '/HTTP_CODE:/d')
 
         if [[ "$http_code" -eq 200 ]]; then
             echo "Response data: $body"
