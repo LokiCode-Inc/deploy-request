@@ -1,6 +1,6 @@
 # Deploy Request Demo (Hardhat)
 
-A demo of using Loki.code's deploy request API call within a Hardhat project.
+A demo of using Loki.code's deploy request API call within a Hardhat project. For a more detailed guide, check out our [docs](https://docs.lokicode.app/make-a-deploy-request).
 
 ## Getting Started
 
@@ -14,5 +14,3 @@ A demo of using Loki.code's deploy request API call within a Hardhat project.
 2. Edit the [deploy-request script](scripts/deploy-request.ts) (follow the instructions at the top of that file).
 3. Run `npx hardhat run scripts/deploy-request.ts`.
 4. Go to your project on Loki.code's website to review the deploy request.
-
-For a more detailed guide, check out our [docs](https://docs.lokicode.app/make-a-deploy-request).
