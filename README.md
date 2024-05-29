@@ -1,8 +1,8 @@
 # Deploy Request Examples
 
-## Getting Started
-
 This repository contains example projects to help you get started with making a contract deploy request to your project on Loki.code.
+
+## Getting Started
 
 Start by accessing the folder that fits your preferred framework, and then follow the instructions within its README.
 
