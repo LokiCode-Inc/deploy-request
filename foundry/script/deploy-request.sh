@@ -1,10 +1,13 @@
 #!/bin/bash
 
-# TODO: UPDATE THESE FOUR VARIABLES TO FIT YOUR PROJECT
+# TODO: UPDATE THESE CONSTANTS TO FIT YOUR PROJECT
 CONTRACT_NAMES=("Counter")  # Add more contract names as needed
-PROJECT_ID="<YOUR PROJECT'S ID>"
+PROJECT_ID="<YOUR PROJECT ID>"
 CHAIN_ID=11155111
-API_KEY="<YOUR PROJECT'S API KEY>"
+API_KEY="<YOUR API KEY>"
+
+# Loki.code API URL
+LOKI_CODE_URL="https://loki-api2.azurewebsites.net/deployment-requests/save"
 
 # Directory containing the compiled contract data
 COMPILE_DIR="../out"
@@ -19,14 +22,13 @@ send_deploy_request() {
     local file="$COMPILE_DIR/$contract_name.sol/$contract_name.json"
 
     if [[ -f "$file" ]]; then
-        # Extract abi and bytecode from the file using jq
+        # Extract abi and bytecode.object from the file using jq
         local abi=$(jq -c '.abi' "$file")
-        local bytecode=$(jq -r '.bytecode' "$file")
-        local contract_name=$(jq -r '.contractName' "$file")
+        local bytecode=$(jq -r '.bytecode.object' "$file")
 
-        # Create JSON payload
+        # Create JSON payload using jq
         payload=$(jq -n \
-            --arg abi "$abi" \
+            --argjson abi "$abi" \
             --arg bytecode "$bytecode" \
             --arg contractName "$contract_name" \
             --arg projectId "$project_id" \
@@ -52,7 +54,7 @@ send_deploy_request() {
         http_code=$(echo "$response" | grep -o 'HTTP_CODE:[0-9]*' | cut -d: -f2)
         body=$(echo "$response" | sed '/HTTP_CODE:/d')
 
-        if [[ "$http_code" -eq 200 ]]; then
+        if [[ "$http_code" -eq 200 ]] || [[ "$http_code" -eq 201 ]]; then
             echo "Response data: $body"
         else
             echo "Error making POST request: HTTP $http_code"
