@@ -10,9 +10,17 @@ A demo of using Loki.code's deploy request API call within a Foundry project. Fo
 ## Send a Deploy Request (MacOS or Linux)
 
 1. Optional: add your contracts to the [src](/foundry/src/) folder.
-2. Edit the [deploy-request script](/foundry/script/deploy-request.sh) (follow the instructions at the top of that file).
-3. Run `forge build` to compile your contracts.
+2. Run `forge build` to compile your contracts.
+3. Edit the [deploy-request script](/foundry/script/deploy-request.sh) (follow the instructions at the top of that file).
 4. Install the `jq` package if you don't have it already. You can install it with `brew install jq` on MacOS or `sudo apt-get install jq` on Linux.
 5. Run `chmod +x script/deploy-request.sh` to make the deploy request script executable.
 6. Run `./script/deploy-request.sh` to send the deploy request.
 7. Go to your project on Loki.code's website to review the deploy request.
+
+## Send a Deploy Request (Windows)
+
+1. Optional: add your contracts to the [src](/foundry/src/) folder.
+2. Edit the [deploy-request script](/foundry/script/deploy-request.ps1) (follow the instructions at the top of that file).
+3. Run `forge build` to compile your contracts.
+4. Run `.\deploy-request.ps1` to send the deploy request.
+5. Go to your project on Loki.code's website to review the deploy request.
