@@ -3,13 +3,16 @@
  *
  * Step 1: Optional: add your contracts to the /contracts folder.
  *
- * Step 2: Edit the following constants in the main function below:
+ * Step 2: Compile your contracts by running:
+ * npx hardhat compile
+ *
+ * Step 3: Edit the following constants in the main function below:
  * @constant contractNames: The names of the contracts you wish to make a deploy request for.
  * @constant projectId: The ID of the project you wish to save the deploy request to. You can find this on your project's page on Loki.
  * @constant chainId: The ID of the chain you wish to deploy to (i.e. 1 for mainnet).
  * @constant apiKey: Your Loki.code API key. You can generate this from your project's page on Loki.code.
  *
- * Step 3: Run the following command in your terminal:
+ * Step 4: Run the following command in your terminal:
  * npx hardhat run scripts/deploy-request.ts
  */
 

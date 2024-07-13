@@ -1,5 +1,5 @@
-# TODO: UPDATE THESE CONSTANTS TO FIT YOUR PROJECT
-$contractNames = @("Counter")  # Add more contract names as needed
+# TODO: UPDATE THESE FOUR CONSTANTS TO FIT YOUR PROJECT
+$contractNames = @("Counter", "Storage")
 $projectId = "<YOUR PROJECT'S ID>"
 $chainId = 11155111
 $apiKey = "<YOUR PROJECT'S API KEY>"
