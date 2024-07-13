@@ -72,7 +72,7 @@ async function deployRequest(
 
 async function main(): Promise<void> {
   // TODO: UPDATE THESE FOUR CONSTANTS TO FIT YOUR PROJECT
-  const contractNames = ["Storage"];
+  const contractNames = ["Storage", "Lock"];
   const projectId = "<YOUR PROJECT'S ID>";
   const chainId = 11155111;
   const apiKey = "<YOUR PROJECT'S API KEY>";
